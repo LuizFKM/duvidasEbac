@@ -1,22 +1,39 @@
-const form = document.getElementById("form-AB");
+const form = document.getElementById("form-AB"); // Colocando o elemento formulário em uma variável
 
-form.addEventListener('submit', function(e) {
+form.addEventListener('submit', function(e) { // Aplicando um evento de submit ao formulário
+    e.preventDefault(); // Cancelando configuração padrão de atualização da página
+    
 
-const campoA = document.getElementById('campoA');
-const campoB = document.getElementById('campoB');
+const campoA = document.getElementById('campoA'); // Resgatando o que é escrito no campo A e adicionando em uma variável
+const campoB = document.getElementById('campoB'); // Resgatando o que é escrito no campo B e adicionando em uma variável
+const mensagemValido = `Válido! ${campoB.value} é maior que ${campoA.value}!!!`; // Editando atributo CSS em uma variável
+const mensagemErro = "Tudo errado! Tente novamente."
+const containerMensagemErro = document.querySelector('.mensagem-erro') //Armazenando classe do CSS em uma variável
+const containerMensagemValido = document.querySelector('.mensagem-valido')
 
-    // Verifica se o valor do campo B é maior que o valor do campo A
+// Limpar mensagem anterior de sucesso, se existir
+containerMensagemErro.innerHTML = "";
+containerMensagemErro.style.display = 'none';
+
+// Limpar mensagem anterior de erro, se existir
+containerMensagemValido.innerHTML = "";
+containerMensagemValido.style.display = 'none'; 
+
+// Verifica se o valor do campo B é maior que o valor do campo A
     if (parseInt(campoB.value) < parseInt(campoA.value)) {
-    // Impede o envio do formulário se a condição não for atendida
-    e.preventDefault();
-    alert('O valor do campo B deve ser maior que o valor do campo A.');
-    } // Caso a condição esteja certa, envia mensagem de
+    // Puxando a mensagem armazenada na variável "mensagemErro"
+    containerMensagemErro.innerHTML = mensagemErro; 
+    containerMensagemErro.style.display = 'flex'; // Mostrando a mensagem de erro na tela
+    } 
+    // Caso a condição esteja certa
     else {
-    alert ("Formulário valido com sucesso!")
+    // Puxando a mensagem armazenada na variável "mensagemValido"   
+    containerMensagemValido.innerHTML = mensagemValido;
+    containerMensagemValido.style.display = 'flex'; // Mostrando a mensagem de valido na tela
     }
+    
 }
 )
 
-
-console.log (form);
+console.log (form); //imprime o elemento form do HTML no console do devTools
 
