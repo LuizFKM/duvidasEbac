@@ -57,6 +57,29 @@ button:hover {
     rotate: 0.9deg; 
 }
 
+.mensagem-valido {
+    background-color: blueviolet;
+    color: aliceblue;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: medium;
+    font-weight: 400;
+    display: none;
+    justify-content: center;
+    padding: 4px;
+    
+}
+
+.mensagem-erro {
+    background-color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: medium;
+    font-weight: 400;
+    display: none;
+    justify-content: center;
+    padding: 4px;
+}
+
 
 
 
