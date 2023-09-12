@@ -1,0 +1,126 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Roboto, sans-serif;
+}
+
+.container {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header {
+    padding: 10px;
+    background-color: rgb(15, 114, 180);
+    color: #fff;
+}
+
+.container h1 {
+    font-style: italic;
+    font-weight: 600;
+}
+
+.menu li {
+    float: left;
+    padding: 16px;
+    list-style: none;
+    font-weight: 600;
+}
+
+.menu li a {
+    list-style: none;
+    text-decoration: none;
+    color: #fff;
+}
+
+#about .container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 30px;
+}
+
+
+#about img {
+    width: 400px;
+}
+
+.about-text {
+    align-items: center;
+    padding-left: 20px;
+}
+
+#about h2 {
+    color: rgb(15, 114, 180);
+    font-style: italic;
+    padding-bottom: 16px ;
+    border-bottom: 2px solid rgb(15, 114, 180);
+}
+
+#about p {
+    padding-top: 25px;
+}
+
+#produtos h2 {
+    color: rgb(15, 114, 180);
+    font-style: italic;
+    padding-bottom: 16px;
+    border-bottom: 2px solid rgb(15, 114, 180);
+}
+
+#produtos .container   {
+    padding-top: 50px;
+
+}
+
+.lista-tenis {
+    margin: 50px 0px 20px 0px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4, 24.5%);
+    column-gap: 1%;
+}
+
+ul li img {
+    max-width: 100%;
+}
+
+
+ul li {
+    list-style: none;
+    
+    
+}
+
+
+ul li p,
+h3 {
+    
+    max-width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+ul button {
+    font-weight:600;
+    padding: 8px;
+    width: 100%;
+    background-color: rgb(15, 114, 180);
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+}
+
+
+
+
+
+
