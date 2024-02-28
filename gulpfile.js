@@ -2,7 +2,7 @@ const gulp = require('gulp');
 const sass = require('gulp-sass')(require('sass'))
 
 function compilaSass(){
-    return gulp.src('.source/styles/*.scss') //pega os arquivos fonte
+    return gulp.src('./source/styles/*.scss') //pega os arquivos fonte
         .pipe(sass()) // execute as funções do sass
         .pipe(gulp.dest('./build/styles')) // envia para pasta destino as compilações
 }
