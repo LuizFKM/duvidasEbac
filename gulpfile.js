@@ -1,6 +1,22 @@
 const gulp = require('gulp');
-const sass = require('gulp-sass')(require('sass'))
-const sourcemaps = require('gulp-sourcemaps')
+const sass = require('gulp-sass')(require('sass'));
+const sourcemaps = require('gulp-sourcemaps');
+const uglify = require('gulp-uglify');
+const obfuscate = require('gulp-obfuscate');
+const imagemin = require('gulp-imagemin');
+
+function comprimeImagens(){
+    return gulp.src('./source/images/*')// pega as imagens da pasta images
+    .pipe(imagemin()) // executa
+    .pipe(gulp.dest('./build/images'))//envia para pasta destino imagens comprimidas
+}
+
+function comprimeJavaScript() {
+    return gulp.src('./source/scripts/*.js')//pega os arquivos fonte
+    .pipe(uglify()) //executa o plugin do gulp
+    .pipe(obfuscate()) //executa o plugin para "obfuscar" o código
+    .pipe(gulp.dest('./build/scripts'))// envia para pasta destino as compressões
+}
 
 function compilaSass(){
     return gulp.src('./source/styles/main.scss') //pega os arquivos fonte
@@ -13,33 +29,10 @@ function compilaSass(){
         .pipe(gulp.dest('./build/styles')) // envia para pasta destino as compilações
 }
 
-function funcaoPadrao (callback) {
-    setTimeout(function(){
-        console.log('Executando via Gulp');
-        callback() // as funções do gulp trabalham com call back
-
-    }, 2000);
-}
-
-function dizOi(callback) {
-    setTimeout(function(){
-        console.log('olá gulp');
-        dizTchau(); // acessando a tarefa privada por meio da tarefa dizOi
-        callback();
-        
-    }, 1000)
-}
-
-function dizTchau() { // função privada. Usamos essa sem callback e podemos usar ela em outras funções
-    console.log('Tchau Gulp');
-}
-
-
-exports.default = gulp.parallel(funcaoPadrao, dizOi); // exportando a função por meio do método default(padrão) npm run gulp
-exports.dizOi = dizOi; // exporta a função diz oi apenas se chamar npm run gul nome_da_função(dizOi)
-exports.sass = compilaSass;
-exports.watch = function(){
-    gulp.watch('./source/styles/*.scss', {ignoreInitial: false}, gulp.series(compilaSass))
+exports.default = function(){
+    gulp.watch('./source/styles/*.scss', {ignoreInitial: false}, gulp.series(compilaSass));
+    gulp.watch('./source/scripts/*.js', {ignoreInitial: false}, gulp.series(comprimeJavaScript));
+    gulp.watch('./source/images/*', {ignoreInitial: false}, gulp.series(comprimeImagens));
 }
 
 
